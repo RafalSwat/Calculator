@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 func addition(argument1: Double, argument2: Double) -> Double {
     return argument1 + argument2
 }
@@ -31,7 +32,24 @@ func percentage(argument: Double) -> Double {
     return argument / 100.0
 }
 func delete(argument: Double) -> Double{
-    return 0.0
+    
+    var numberAsString = String(argument)
+    
+    if argument == 0 {
+        return 0.0
+    }
+    else if argument.truncatingRemainder(dividingBy: 1) == 0 { // % operation on float
+        numberAsString = String(numberAsString.dropLast(3)) // because last letter of double looks like "21... 321.0"
+    }
+    else {
+        numberAsString = String(numberAsString.dropLast())
+    }
+    if let numberAsDouble: Double = Double(numberAsString) {
+        return numberAsDouble
+    }
+    else {
+        return 0.0
+    }
 }
 
 class Operation {
@@ -100,4 +118,7 @@ class Operation {
             return numberStorage
         }
     }
+}
+extension Operation  {
+
 }
