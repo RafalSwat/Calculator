@@ -30,7 +30,9 @@ func changeASign(argument: Double) -> Double {
 func percentage(argument: Double) -> Double {
     return argument / 100.0
 }
-
+func delete(argument: Double) -> Double{
+    return 0.0
+}
 
 class Operation {
     
@@ -68,6 +70,7 @@ class Operation {
         "AC" : OperationType.Unary(reset),
         "+/-" : OperationType.Unary(changeASign),
         "%" : OperationType.Unary(percentage),
+        "C" : OperationType.Unary(delete),
         "/" : OperationType.Binary(division),
         "x" : OperationType.Binary(multiplication),
         "-" : OperationType.Binary(subtraction),

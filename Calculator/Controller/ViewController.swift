@@ -49,6 +49,7 @@ class ViewController: UIViewController {
         }
         if let symbolOfOperation = sender.currentTitle {
             operation.doMath(symbol: symbolOfOperation)
+            beginningOfEnteringTheNumber = true
         }
         numberAsDouble = operation.outCome
     }
