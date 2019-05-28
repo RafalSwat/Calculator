@@ -1,11 +1,3 @@
-//
-//  Operation.swift
-//  Calculator
-//
-//  Created by Rafał Swat on 28/05/2019.
-//  Copyright © 2019 Rafał Swat. All rights reserved.
-//
-
 import Foundation
 
 
@@ -25,7 +17,6 @@ class Operation {
     }
     
     
-    // needed to apply binary operations in a switch as dictionary
     struct BinaryStruct {
         var binaryFunction: (Double, Double) -> Double
         var firstArgument: Double
@@ -35,8 +26,8 @@ class Operation {
     // in equal and binary (to can make "5*5*5" without "=" each time)
     func performBinaryOperation() {
         if pending != nil {
-            print(numberStorage, pending?.firstArgument)
-            numberStorage = (pending!.binaryFunction(pending!.firstArgument, numberStorage)) // easy to use "!" cause if
+            //print(numberStorage, pending?.firstArgument)
+            numberStorage = (pending!.binaryFunction(pending!.firstArgument, numberStorage))
             pending = nil // after "=" pending variable again free
         }
     }

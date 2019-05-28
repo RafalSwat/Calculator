@@ -56,11 +56,11 @@
 		077B75A5229CF10E00167D44 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				077B75B2229CF11000167D44 /* Info.plist */,
-				077B75AF229CF11000167D44 /* LaunchScreen.storyboard */,
 				077B75B8229D19CD00167D44 /* Model */,
 				077B75BA229D1A0000167D44 /* View */,
 				077B75B9229D19E700167D44 /* Controller */,
+				077B75B2229CF11000167D44 /* Info.plist */,
+				077B75AF229CF11000167D44 /* LaunchScreen.storyboard */,
 				077B75BB229D1A2D00167D44 /* Supporting Files */,
 			);
 			path = Calculator;
