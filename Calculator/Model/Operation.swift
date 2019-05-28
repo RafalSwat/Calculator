@@ -9,49 +9,6 @@
 import Foundation
 
 
-func addition(argument1: Double, argument2: Double) -> Double {
-    return argument1 + argument2
-}
-func subtraction(argument1: Double, argument2: Double) -> Double {
-    return argument1 - argument2
-}
-func multiplication(argument1: Double, argument2: Double) -> Double {
-    return argument1 * argument2
-}
-func division(argument1: Double, argument2: Double) -> Double {
-    return argument1 / argument2
-}
-
-func reset(argument : Double) -> Double {
-    return 0.0
-}
-func changeASign(argument: Double) -> Double {
-    return argument * (-1)
-}
-func percentage(argument: Double) -> Double {
-    return argument / 100.0
-}
-func delete(argument: Double) -> Double{
-    
-    var numberAsString = String(argument)
-    
-    if argument == 0 {
-        return 0.0
-    }
-    else if argument.truncatingRemainder(dividingBy: 1) == 0 { // % operation on float
-        numberAsString = String(numberAsString.dropLast(3)) // because last letter of double looks like "21... 321.0"
-    }
-    else {
-        numberAsString = String(numberAsString.dropLast())
-    }
-    if let numberAsDouble: Double = Double(numberAsString) {
-        return numberAsDouble
-    }
-    else {
-        return 0.0
-    }
-}
-
 class Operation {
     
     private var numberStorage: Double = 0.0
@@ -78,6 +35,7 @@ class Operation {
     // in equal and binary (to can make "5*5*5" without "=" each time)
     func performBinaryOperation() {
         if pending != nil {
+            print(numberStorage, pending?.firstArgument)
             numberStorage = (pending!.binaryFunction(pending!.firstArgument, numberStorage)) // easy to use "!" cause if
             pending = nil // after "=" pending variable again free
         }
@@ -120,5 +78,48 @@ class Operation {
     }
 }
 extension Operation  {
+
+    static func addition(argument1: Double, argument2: Double) -> Double {
+        return argument1 + argument2
+    }
+    static func subtraction(argument1: Double, argument2: Double) -> Double {
+        return argument1 - argument2
+    }
+    static func multiplication(argument1: Double, argument2: Double) -> Double {
+        return argument1 * argument2
+    }
+    static func division(argument1: Double, argument2: Double) -> Double {
+        return argument1 / argument2
+    }
+    
+    static func reset(argument : Double) -> Double {
+        return 0.0
+    }
+    static func changeASign(argument: Double) -> Double {
+        return argument * (-1)
+    }
+    static func percentage(argument: Double) -> Double {
+        return argument / 100.0
+    }
+    static func delete(argument: Double) -> Double{
+        
+        var numberAsString = String(argument)
+        
+        if argument == 0 {
+            return 0.0
+        }
+        else if argument.truncatingRemainder(dividingBy: 1) == 0 { // % operation on float
+            numberAsString = String(numberAsString.dropLast(3)) // because last letter of double looks like "21... 321.0"
+        }
+        else {
+            numberAsString = String(numberAsString.dropLast())
+        }
+        if let numberAsDouble: Double = Double(numberAsString) {
+            return numberAsDouble
+        }
+        else {
+            return 0.0
+        }
+    }
 
 }
